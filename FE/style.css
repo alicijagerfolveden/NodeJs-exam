@@ -1,0 +1,78 @@
+body {
+    margin:0;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+header img {
+width: 100px;
+}
+
+h1, h2, h3 {
+    font-size: 30px;
+}
+
+h3{
+    font-weight: 400;
+}
+
+header p {
+    text-transform: uppercase;
+    color: rgb(83, 82, 82);
+    font-size: 20px;
+}
+
+main {
+    margin: 0 35%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid rgb(177, 174, 174);
+}
+
+form button {
+    width: 140px;
+    padding: 15px;
+    background-color: white;
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 30px;
+}
+
+main p a {
+    text-decoration: none;
+}
+
+section {
+    text-align: center;
+}
+
+#group-box {
+    width: 800px;
+    height: 200px;
+    background-color: green;
+}
+
+#bills-box {
+    width: 800px;
+    height: 200px;
+    background-color: green;
+}
