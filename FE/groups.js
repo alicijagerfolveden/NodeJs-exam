@@ -73,6 +73,7 @@ const renderGroups = (groups) => {
     const ipOfGroup = document.createElement("p");
     const nameOfGroup = document.createElement("p");
 
+    groupBox.setAttribute("id", `${group.id}`);
     ipOfGroup.setAttribute("id", "group-id");
     nameOfGroup.setAttribute("id", "group-name");
 
@@ -86,3 +87,15 @@ const renderGroups = (groups) => {
 };
 
 renderGroups(groups);
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const petId = urlParams.get("id");
+console.log(queryString);
+console.log(urlParams);
+console.log(petId);
+// document.querySelector("#add-prescription").addEventListener("click", () => {
+//   window.open(`./add-prescription.html?id=${petId}`, "_self");
+// });
+
+// const renderToBill = (value) => {};

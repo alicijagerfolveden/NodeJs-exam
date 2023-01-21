@@ -1,14 +1,13 @@
 import mysql from "mysql2/promise";
-import jwt from "jsonwebtoken";
 import { mysqlConfig } from "../../config.js";
-import { jwtSecret } from "../../config.js";
 
-export const postAccount = async (req, res) => {
-  const { group_id, user_id } = req.body;
+export const postBill = async (req, res) => {
+  const { group_id } = req.params;
+  const { amount, description } = req.body;
 
   //todo: prirašyti if'ų
 
-  const query = `INSERT INTO defaultdb.accounts (group_id, user_id) VALUES ('${group_id}',${user_id} )`;
+  const query = `INSERT INTO defaultdb.bills (group_id, amount, description) VALUES (${group_id},${amount}, '${description}')`;
 
   try {
     const connection = await mysql.createConnection(mysqlConfig);
@@ -24,12 +23,10 @@ export const postAccount = async (req, res) => {
   }
 };
 
-export const getAccounts = async (req, res) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  const user = jwt.verify(token, jwtSecret);
-  const userID = user.id;
+export const getBills = async (req, res) => {
+  const { group_id } = req.params;
 
-  const query = `SELECT defaultdb.groups.id, defaultdb.groups.name FROM defaultdb.groups INNER JOIN defaultdb.accounts ON defaultdb.groups.id = defaultdb.accounts.group_id WHERE defaultdb.accounts.user_id = ${userID}`;
+  const query = `SELECT defaultdb.bills.id, defaultdb.bills.amount, defaultdb.bills.description FROM defaultdb.bills INNER JOIN defaultdb.groups ON defaultdb.groups.id = defaultdb.bills.group_id WHERE defaultdb.bills.group_id = ${group_id}`;
 
   try {
     const con = await mysql.createConnection(mysqlConfig);
