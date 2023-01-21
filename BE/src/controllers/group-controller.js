@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { getGroups, postGroup } from "../services/group-services.js";
 
-const router = Router();
+const groupRouter = Router();
 
-router.get("/", getGroups);
+groupRouter.get("/", getGroups);
 
-router.post("/", postGroup);
+groupRouter.post("/", postGroup);
 
-export default router;
+export default groupRouter;

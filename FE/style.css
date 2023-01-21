@@ -66,9 +66,30 @@ section {
 }
 
 #groups-box {
-    width: 800px;
-    height: 200px;
-    background-color: green;
+ display: grid;
+ grid-template-columns: auto auto auto auto auto auto;
+ grid-gap: 40px;
+ justify-content: space-around;
+ margin-bottom: 50px;
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+#groups-box div {
+    border: 3px solid rgb(176, 175, 175);
+    border-radius: 10px;
+height: 150px;
+width: 200px;
+justify-content: center;
+}
+
+#group-id {
+    font-weight: bold;
+font-size: 30px;
+}
+
+#group-name {
+    color: rgb(86, 86, 86);
 }
 
 #bills-box {
