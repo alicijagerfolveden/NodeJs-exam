@@ -2,7 +2,6 @@ import mysql from "mysql2/promise";
 import bcrypt from "bcryptjs";
 import { mysqlConfig } from "../../config.js";
 import { userSchema } from "../models/RegisterUser.js";
-import { loginUserSchema } from "../models/LoginUser.js";
 
 export const registerNewUser = async (req, res) => {
   let userData = req.body;

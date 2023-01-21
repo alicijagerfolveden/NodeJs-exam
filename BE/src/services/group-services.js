@@ -4,7 +4,6 @@ import { mysqlConfig } from "../../config.js";
 export const postGroup = async (req, res) => {
   const { name } = req.body;
 
-  console.log(name);
   const query = `INSERT INTO defaultdb.groups (name) VALUES ('${name}')`;
 
   try {
