@@ -2,6 +2,17 @@ const addToGroupForm = document.querySelector("form");
 const token = localStorage.getItem("token");
 
 const getGroups = async () => {
+  const request = await fetch("http://localhost:5000/groups", {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  const groups = await request.json();
+
+  return groups;
+};
+
+const getUsersAccounts = async () => {
   const request = await fetch("http://localhost:5000/accounts", {
     headers: {
       authorization: `Bearer ${token}`,
@@ -13,6 +24,7 @@ const getGroups = async () => {
 };
 
 const groups = await getGroups();
+const usersGroups = await getUsersAccounts();
 
 const addGroupOption = (groups) => {
   const groupSelection = document.querySelector("#group_id");
@@ -69,33 +81,24 @@ const renderGroups = (groups) => {
   const groupsBox = document.querySelector("#groups-box");
 
   groups.forEach((group) => {
+    const linkToGroup = document.createElement("a");
     const groupBox = document.createElement("div");
-    const ipOfGroup = document.createElement("p");
+    const idOfBroup = document.createElement("p");
     const nameOfGroup = document.createElement("p");
 
-    groupBox.setAttribute("id", `${group.id}`);
-    ipOfGroup.setAttribute("id", "group-id");
+    linkToGroup.setAttribute("href", `./bills.html?group_id=${group.id}`);
+    idOfBroup.setAttribute("id", "group-id");
     nameOfGroup.setAttribute("id", "group-name");
 
-    ipOfGroup.textContent = `ID: ${group.id}`;
+    idOfBroup.textContent = `ID: ${group.id}`;
     nameOfGroup.textContent = `${group.name}`;
 
-    groupBox.append(ipOfGroup, nameOfGroup);
+    groupBox.append(idOfBroup, nameOfGroup);
 
-    groupsBox.append(groupBox);
+    linkToGroup.append(groupBox);
+
+    groupsBox.append(linkToGroup);
   });
 };
 
-renderGroups(groups);
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const petId = urlParams.get("id");
-console.log(queryString);
-console.log(urlParams);
-console.log(petId);
-// document.querySelector("#add-prescription").addEventListener("click", () => {
-//   window.open(`./add-prescription.html?id=${petId}`, "_self");
-// });
-
-// const renderToBill = (value) => {};
+renderGroups(usersGroups);

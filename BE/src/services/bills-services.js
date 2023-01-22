@@ -7,7 +7,7 @@ export const postBill = async (req, res) => {
 
   //todo: prirašyti if'ų
 
-  const query = `INSERT INTO defaultdb.bills (group_id, amount, description) VALUES (${group_id},${amount}, '${description}')`;
+  const query = `INSERT INTO defaultdb.bills (group_id, amount, description) VALUES (${group_id},${amount},'${description}')`;
 
   try {
     const connection = await mysql.createConnection(mysqlConfig);

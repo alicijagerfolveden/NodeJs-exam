@@ -96,6 +96,10 @@ width: 200px;
 justify-content: center;
 }
 
+#groups-box a {
+    text-decoration: none;
+}
+
 #group-id {
     font-weight: bold;
 font-size: 30px;
@@ -106,7 +110,28 @@ font-size: 30px;
 }
 
 #bills-box {
-    width: 800px;
-    height: 200px;
-    background-color: green;
+   margin: 10% 10%;
+    text-align: left;
+  display: flex;
+  justify-content: space-around;
 }
+table {
+    border-collapse: collapse;
+}
+
+#bills-box th,#bills-box td {
+width: 400px;
+font-size: 20px;
+padding: 10px;
+}
+#bills-box th {
+    background-color: rgb(245, 245, 245);
+}
+
+#bills-box tr:nth-child(odd) {
+    background-color: rgb(209, 209, 209);
+} 
+
+#bills-box tr:nth-child(even) {
+    background-color:rgb(245, 245, 245)
+} 
