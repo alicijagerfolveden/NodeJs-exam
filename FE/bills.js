@@ -130,7 +130,8 @@ const postNewBill = async (value) => {
   if (response.ok) {
     const responseForUser = document.createElement("h4");
 
-    responseForUser.textContent = "New user successfully created";
+    responseForUser.textContent =
+      "New bill successfully added. Please refresh current wep page";
 
     billsForm.append(responseForUser);
   }

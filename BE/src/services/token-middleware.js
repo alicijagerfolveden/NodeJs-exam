@@ -7,6 +7,10 @@ export const isLoggedIn = (req, res, next) => {
 
     const user = jwt.verify(token, jwtSecret);
 
+    if (!token || !user) {
+      return res.status(401).send({ error: "User unauthorised" }).end();
+    }
+
     next();
   } catch (error) {
     console.log(error);

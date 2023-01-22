@@ -11,7 +11,7 @@ export const registerNewUser = async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    return res.status(400).send({ error: "Incorect data provided" });
+    return res.status(400).send({ error: "Incorrect data provided" });
   }
 
   try {

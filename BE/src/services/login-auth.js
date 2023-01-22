@@ -12,7 +12,7 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    return res.status(400).send({ error: "Incorect email or password" }).end();
+    return res.status(400).send({ error: "Incorrect email or password" }).end();
   }
 
   try {

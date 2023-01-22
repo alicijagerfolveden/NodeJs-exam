@@ -1,10 +1,23 @@
 import mysql from "mysql2/promise";
 import { mysqlConfig } from "../../config.js";
+import { groupSchema } from "../models/Groups.js";
 
 export const postGroup = async (req, res) => {
   const { name } = req.body;
 
-  const query = `INSERT INTO defaultdb.groups (name) VALUES ('${name}')`;
+  let groupData = { name };
+
+  try {
+    groupData = await groupSchema.validateAsync(groupData);
+  } catch (error) {
+    console.log(error);
+
+    return res.status(400).send({ error: "Incorrect name provided" }).end();
+  }
+
+  const query = `INSERT INTO defaultdb.groups (name) VALUES (${mysql.escape(
+    name
+  )})`;
 
   try {
     const connection = await mysql.createConnection(mysqlConfig);

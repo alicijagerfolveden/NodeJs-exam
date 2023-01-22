@@ -6,6 +6,13 @@ const getUserInputData = () => {
   const password = document.querySelector("#password").value;
   const repeatPassword = document.querySelector("#repeat-password").value;
 
+  const regex = /[a-zA-Z]+\s+[a-zA-Z]+/g;
+
+  if (!regex.test(full_name)) {
+    alert("Please write your name and surname");
+    return;
+  }
+
   if (password !== repeatPassword) {
     alert("Please repeat similar password");
     return;

@@ -11,6 +11,7 @@ const getUserInputData = () => {
 
   return user;
 };
+console.log(window.location);
 
 const postUser = async (value) => {
   fetch("http://localhost:5000/login", {
@@ -31,6 +32,8 @@ const postUser = async (value) => {
         localStorage.setItem("user_id", data.userID);
 
         alert("Logged in");
+
+        window.location.pathname = "/FE/groups.html";
       }
     })
     .catch((err) => console.log(err));

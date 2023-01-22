@@ -62,7 +62,7 @@ main p a{
     text-decoration: none;
 }
 
-a {
+#groups-box a {
     margin-left: 50px;
     font-size: larger;
     color: black;

@@ -18,9 +18,9 @@ const getUsersAccounts = async () => {
       authorization: `Bearer ${token}`,
     },
   });
-  const groups = await request.json();
+  const userGroups = await request.json();
 
-  return groups;
+  return userGroups;
 };
 
 const groups = await getGroups();
@@ -38,6 +38,34 @@ const addGroupOption = (groups) => {
 };
 
 addGroupOption(groups);
+
+const renderGroups = (groups) => {
+  const groupsBox = document.querySelector("#groups-box");
+
+  groupsBox.replaceChildren();
+
+  groups.forEach((group) => {
+    const linkToGroup = document.createElement("a");
+    const groupBox = document.createElement("div");
+    const idOfBroup = document.createElement("p");
+    const nameOfGroup = document.createElement("p");
+
+    linkToGroup.setAttribute("href", `./bills.html?group_id=${group.id}`);
+    idOfBroup.setAttribute("id", "group-id");
+    nameOfGroup.setAttribute("id", "group-name");
+
+    idOfBroup.textContent = `ID: ${group.id}`;
+    nameOfGroup.textContent = `${group.name}`;
+
+    groupBox.append(idOfBroup, nameOfGroup);
+
+    linkToGroup.append(groupBox);
+
+    groupsBox.append(linkToGroup);
+  });
+};
+
+renderGroups(usersGroups);
 
 addToGroupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -74,31 +102,7 @@ addToGroupForm.addEventListener("submit", async (event) => {
     responseForUser.textContent = `You were added to ${group_id} group`;
 
     addToGroupForm.append(responseForUser);
+  } else {
+    alert("Choose the group you are not in");
   }
 });
-
-const renderGroups = (groups) => {
-  const groupsBox = document.querySelector("#groups-box");
-
-  groups.forEach((group) => {
-    const linkToGroup = document.createElement("a");
-    const groupBox = document.createElement("div");
-    const idOfBroup = document.createElement("p");
-    const nameOfGroup = document.createElement("p");
-
-    linkToGroup.setAttribute("href", `./bills.html?group_id=${group.id}`);
-    idOfBroup.setAttribute("id", "group-id");
-    nameOfGroup.setAttribute("id", "group-name");
-
-    idOfBroup.textContent = `ID: ${group.id}`;
-    nameOfGroup.textContent = `${group.name}`;
-
-    groupBox.append(idOfBroup, nameOfGroup);
-
-    linkToGroup.append(groupBox);
-
-    groupsBox.append(linkToGroup);
-  });
-};
-
-renderGroups(usersGroups);
