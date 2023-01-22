@@ -1,0 +1,137 @@
+body {
+    margin:0;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+header img {
+width: 100px;
+}
+
+h1, h2, h3 {
+    font-size: 30px;
+}
+
+h3{
+    font-weight: 400;
+}
+
+header p {
+    text-transform: uppercase;
+    color: rgb(83, 82, 82);
+    font-size: 20px;
+}
+
+main {
+    margin: 0 35%;
+margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+form input, select {
+    padding: 12px;
+    border: 1px solid rgb(177, 174, 174);
+}
+
+form button {
+    width: 140px;
+    padding: 15px;
+    background-color: white;
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 30px;
+}
+
+main p a{
+    text-decoration: none;
+}
+
+#groups-box a {
+    margin-left: 50px;
+    font-size: larger;
+    color: black;
+}
+
+section {
+    text-align: center;
+}
+
+#groups-box {
+ display: grid;
+ grid-template-columns: auto auto auto auto auto auto;
+ grid-gap: 40px;
+ justify-content: space-around;
+ margin-bottom: 50px;
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+@media (max-width: 1505px) {
+    #groups-box {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+#groups-box div {
+    border: 3px solid rgb(176, 175, 175);
+    border-radius: 10px;
+height: 150px;
+width: 200px;
+justify-content: center;
+}
+
+#groups-box a {
+    text-decoration: none;
+}
+
+#group-id {
+    font-weight: bold;
+font-size: 30px;
+}
+
+#group-name {
+    color: rgb(86, 86, 86);
+}
+
+#bills-box {
+   margin: 10% 10%;
+    text-align: left;
+  display: flex;
+  justify-content: space-around;
+}
+table {
+    border-collapse: collapse;
+}
+
+#bills-box th,#bills-box td {
+width: 400px;
+font-size: 20px;
+padding: 10px;
+}
+#bills-box th {
+    background-color: rgb(245, 245, 245);
+}
+
+#bills-box tr:nth-child(odd) {
+    background-color: rgb(209, 209, 209);
+} 
+
+#bills-box tr:nth-child(even) {
+    background-color:rgb(245, 245, 245)
+} 
